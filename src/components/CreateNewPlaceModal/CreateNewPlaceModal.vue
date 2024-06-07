@@ -1,10 +1,10 @@
 <script setup>
 import { computed, reactive } from 'vue'
-import InputImage from '../InputImage/InputImage.vue'
+import IButton from '../IButton/IButton.vue'
 import IInput from '../IInput/IInput.vue'
-import MarkerIcon from '../Icons/MarkerIcon.vue'
 import IModal from '../IModal/IModal.vue'
-import IButtton from '../IButton/IButtton.vue'
+import InputImage from '../InputImage/InputImage.vue'
+import MarkerIcon from '../Icons/MarkerIcon.vue'
 
 const props = defineProps({
   isOpen: {
@@ -40,7 +40,8 @@ const handleUpload = (url) => {
         <img v-if="formData.img" :src="formData.img" alt="avatar" class="w-8 h-8 object-cover" />
         <InputImage @uploaded="handleUpload">{{ uploadText }}</InputImage>
       </div>
-      <IButtton class="w-full" variant="gradient">Додати</IButtton>
+
+      <IButton class="w-full" variant="gradient">Додати</IButton>
     </form>
   </IModal>
 </template>
