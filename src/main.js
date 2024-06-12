@@ -1,17 +1,16 @@
 import './assets/main.css'
 
-import App from "@/App.vue";
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { router } from './router'
-import { authService, TOKEN_KEY } from "@/api/authService";
+import { authService, TOKEN_KEY } from './api/authService'
 
-
+import App from './App.vue'
 
 const token = localStorage.getItem(TOKEN_KEY)
 
-if(token){
-    authService.setToken(token)
+if (token) {
+  authService.setToken(token)
 }
 
 const app = createApp(App)

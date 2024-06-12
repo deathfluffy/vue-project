@@ -1,7 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
 import IInput from '../../IInput/IInput.vue'
-import FormContainer from '../FormContainer.vue'
 import IButton from '../../IButton/IButton.vue'
 
 const props = defineProps({
@@ -18,11 +17,11 @@ const userData = reactive({
 </script>
 
 <template>
-  <FormContainer @submit.prevent="emit('submit', userData)">
+  <form @submit.prevent="emit('submit', userData)">
     <IInput class="mb-4" label="Електронна пошта" v-model="userData.email" />
     <IInput type="password" label="Пароль" v-model="userData.password" />
-    <IButton class="mt-10 w-full" variant="gradient" type="submit" :is-loading="props.isLoading"
-      >Увійти
+    <IButton class="mt-10 w-full" variant="gradient" type="submit" :is-loading="props.isLoading">
+      Увійти
     </IButton>
-  </FormContainer>
+  </form>
 </template>

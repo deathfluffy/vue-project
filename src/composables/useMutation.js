@@ -4,8 +4,10 @@ export const useMutation = ({ mutationFn, onSuccess, onError }) => {
   const data = ref()
   const isLoading = ref(false)
   const error = ref(null)
+
   const mutation = async (...args) => {
     isLoading.value = true
+
     try {
       data.value = await mutationFn(...args)
       error.value = null
@@ -17,5 +19,11 @@ export const useMutation = ({ mutationFn, onSuccess, onError }) => {
       isLoading.value = false
     }
   }
-  return { data, isLoading, error, mutation }
+
+  return {
+    data,
+    isLoading,
+    error,
+    mutation
+  }
 }
